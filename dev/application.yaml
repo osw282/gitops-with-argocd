@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/osw282/gitops-with-argocd.git
     targetRevision: experimenting-with-argocd
-    path: gitops-with-argocd/dev
+    path: dev
   destination:
     server: https://kubernetes.default.svc
     namespace: myapp-namespace

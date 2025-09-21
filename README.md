@@ -123,7 +123,7 @@ spec:
   source:
     repoURL: https://github.com/osw282/gitops-with-argocd.git # Git repo ArgoCD will connect to and sync from
     targetRevision: experimenting-with-argocd # Branch to sync from (could be prod/staging/dev in a real project)
-    path: gitops-with-argocd/dev # Where to look in the repo; everything here will be applied to the cluster
+    path: dev # Where to look in the repo; everything here will be applied to the cluster
   destination:
     server: https://kubernetes.default.svc # Destination cluster address. Since ArgoCD runs inside the destination cluster, we can use the internal K8s API server name.
     namespace: myapp-namespace # Namespace where these resources will be created
@@ -135,7 +135,7 @@ spec:
       prune: true
       selfHeal: true # Automatically undo and overwrite manual changes made directly to the cluster (e.g., kubectl apply)
 ```
-### Working with a Private Repository
+### Working with a Private Repository (My repo is public, but just to show you)
 
 There are a few ways to let ArgoCD access a private GitHub repo.
 1. Connecting via the dashboard
@@ -156,7 +156,7 @@ Choose HTTPS as the connection method.
 
 Repository URL would be our mlops recipe repo in this case: `https://github.com/osw282/gitops-with-argocd.git`
 
-The username is your github username and the password would be your PAT token with read access to the repo.
+The username is your github username and the password would be your PAT token with read access to the repo. (You only need them if the repository is private)
 
 Press Connect and this is what we should see.
 
@@ -177,8 +177,9 @@ There are also multiple ways to manage secrets in Argo CD (see the [secret manag
 
 To get ArgoCD to start monitoring changes from our target repository/branch, apply [application.yaml](./dev/application.yaml):
 
+From the root of the repo, run:
 ```bash
-kubectl apply -f gitops-with-argocd/dev/application.yaml
+kubectl apply -f dev/application.yaml
 ```
 
 This should be the only time we will need to run `kubectl apply` ourselves.
@@ -247,8 +248,8 @@ spec:
 Commit these changes to our remote branch:
 
 ```bash
-git add gitops-with-argocd/dev/deployment.yaml
-git add gitops-with-argocd/dev/service.yaml
+git add dev/deployment.yaml
+git add dev/service.yaml
 git commit -m "Update images from hello world to nginx"
 git push
 ```
