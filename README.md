@@ -12,7 +12,7 @@ In this demo, we'll use ArgoCD to implement the CD part of a CI/CD pipeline.
 
 ### Step 1 - Setup
 
-To use this recipe, we will create a new branch on the repository so that everything we do will not affect the main repo. Let's go ahead and do that:
+Before we start this demo, clone my repository first, we will then create a new branch on the repository so that everything we do will not affect the main repo. Let's go ahead and do that:
 
 ```bash
 git checkout -b experimenting-with-argocd
@@ -121,7 +121,7 @@ spec:
   project: default # Every application belongs to a single project
 
   source:
-    repoURL: https://github.com/fuzzylabs/mlops-recipes.git # Git repo ArgoCD will connect to and sync from
+    repoURL: https://github.com/osw282/gitops-with-argocd.git # Git repo ArgoCD will connect to and sync from
     targetRevision: experimenting-with-argocd # Branch to sync from (could be prod/staging/dev in a real project)
     path: gitops-with-argocd/dev # Where to look in the repo; everything here will be applied to the cluster
   destination:
@@ -154,7 +154,7 @@ Choose HTTPS as the connection method.
 
 ![gh_cred](./img/gh_cred.png)
 
-Repository URL would be our mlops recipe repo in this case: `https://github.com/fuzzylabs/mlops-recipes`
+Repository URL would be our mlops recipe repo in this case: `https://github.com/osw282/gitops-with-argocd.git`
 
 The username is your github username and the password would be your PAT token with read access to the repo.
 

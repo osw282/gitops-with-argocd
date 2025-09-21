@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/fuzzylabs/mlops-recipes.git
+    repoURL: https://github.com/osw282/gitops-with-argocd.git
     targetRevision: experimenting-with-argocd
     path: gitops-with-argocd/dev
   destination:
