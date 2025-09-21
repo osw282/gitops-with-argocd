@@ -1,4 +1,4 @@
-#  GitOps ArgoCD Recipe 📈
+#  GitOps With ArgoCD 📈
 
 In this demo, we'll use ArgoCD to implement the CD part of a CI/CD pipeline.
 
