@@ -154,7 +154,7 @@ Choose HTTPS as the connection method.
 
 ![gh_cred](./img/gh_cred.png)
 
-Repository URL would be our mlops recipe repo in this case: `https://github.com/osw282/gitops-with-argocd.git`
+Repository URL would be our github repo in this case: `https://github.com/osw282/gitops-with-argocd.git`
 
 The username is your github username and the password would be your PAT token with read access to the repo. (You only need them if the repository is private)
 
